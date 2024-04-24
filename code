@@ -1,0 +1,61 @@
+db.collection('students').insertOne({
+
+    name: 'Aniket',
+
+    age: 21,
+
+    major: 'Computer Science'
+
+});
+db.collection('students').insertMany([
+
+    {
+
+        name: 'Aniket',
+
+        age: 21,
+
+        major: 'Computer Science'
+
+    },
+
+    {
+
+        name: 'Jane Doe',
+
+        age: 22,
+
+        major: 'Mathematics'
+
+    }
+
+]);
+
+db.collection('students').find({ major: 'Computer Science' });
+db.collection('students').findOne({ name: 'Aniket' });
+
+db.collection('students').updateOne(
+
+    { name: 'Aniket' }, 
+
+    { $set: { major: 'Mathematics' } }
+
+);
+db.collection('students').updateMany(
+
+    { major: 'Undeclared' }, 
+
+    { $set: { major: 'General Studies' } }
+
+);
+db.collection('students').replaceOne(
+
+    { name: 'Aniket' }, 
+
+    { name: 'Aniket', age: 22, major: 'Mathematics' }
+
+);
+
+db.collection('students').deleteOne({ name: 'Aniket' });
+db.collection('students').deleteMany({ major: 'Undeclared' });
+
